@@ -1,0 +1,15 @@
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\app.deps.json
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\app.runtimeconfig.json
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\app.runtimeconfig.dev.json
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\app.dll
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\app.pdb
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.csprojAssemblyReference.cache
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.RazorAssemblyInfo.cache
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.RazorAssemblyInfo.cs
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.AssemblyInfoInputs.cache
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.AssemblyInfo.cs
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.RazorTargetAssemblyInfo.cache
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.dll
+C:\Users\odemers\Source\Repos\Gotham5\app\obj\Debug\netcoreapp2.1\app.pdb
+C:\Users\odemers\Source\Repos\Gotham5\app\bin\Debug\netcoreapp2.1\appsettings.json
