@@ -4,7 +4,7 @@
 
     Balsamiq : https://csfdeptinfo.mybalsamiq.com/projects/tandem-touski/grid
 
-    Pivotal tracker : https://www.pivotaltracker.com/n/projects/2394044
+    Pivotal tracker : https://www.pivotaltracker.com/n/projects/2421798
 
 **Calendrier**
 
