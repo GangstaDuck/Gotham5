@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace app.app.persistence
+namespace app.persistence
 {
     public class AppContext : DbContext
     {
@@ -19,7 +19,7 @@ namespace app.app.persistence
         // Le modèle doit absolument hériter de app.persistence.Entity
     }
 
-    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppContext>
+    /*public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppContext>
     {
         public AppContext CreateDbContext(string[] args)
         {
@@ -32,5 +32,5 @@ namespace app.app.persistence
             builder.UseSqlServer(connectionString);
             return new AppContext(builder.Options);
         }
-    }
+    }*/
 }

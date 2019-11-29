@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace app.app.persistence
+namespace app.persistence
 {
     public class AppRepository<T> : IRepository<T> where T : Entity
     {
