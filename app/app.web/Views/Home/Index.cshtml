@@ -1,8 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		.column {
+			float: left;
+			width: 25%;
+			padding: 5px;
+		}
+
+		/* Clearfix (clear floats) */
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+	</style>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="text-center">
+	<h1 class="display-4">Welcome to Gotham5</h1>
+	<p>This is the official websit of the police departement of Gotham. The goal of this site is to warn our people about any disaster. Also, if you see Batman, don't forget to tell us so we can catch this criminal.</p>
+</div>
+
+	<div class="row">
+		<div class="column">
+			<img src="https://vignette.wikia.nocookie.net/newdcmovieuniverse/images/c/ce/Gcskyline.png/revision/latest?cb=20160223181953" height="200" width="200">
+		</div>
+		<div class="column">
+			<img src="https://vignette.wikia.nocookie.net/fictional-cities/images/5/5a/Gotham_City.png/revision/latest?cb=20150301191813" height="200" width="200">
+		</div>
+		<div class="column">
+			<img src="https://www.vpnden.com/wp-content/uploads/2018/05/gotham-city.jpg" height="200" width="200">
+		</div>
+		<div class="column">
+			<img src="https://i.pinimg.com/originals/81/bb/af/81bbaf217fd2e2d4f9906c1ac59fa45f.jpg" height="200" width="200">
+		</div>
+	</div>
