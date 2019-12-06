@@ -13,4 +13,12 @@ namespace app.persistence
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
     }
+
+    public class News : Entity
+    {
+        public string Title { get; set; }
+        public string Text { get; set; }
+        public string Link { get; set; }
+        public string Status { get; set; }
+    }
 }
