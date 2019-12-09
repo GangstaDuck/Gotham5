@@ -15,11 +15,12 @@ namespace app.persistence
         // Constructeur
         public AppContext(DbContextOptions<AppContext> options) : base(options) { }
 
-		// Lors de la création d'un modèle, l'ajouter ici en suivant l'exemple ci-dessous :
-		// public DbSet<app.domain.NomDuModèle> nomDuModèle { get; set; }
-		// Le modèle doit absolument hériter de app.persistence.Entity
-		public DbSet<ListeSignalement> listeSignalement{ get; set; }
-	}
+        // Lors de la création d'un modèle, l'ajouter ici en suivant l'exemple ci-dessous :
+        // public DbSet<app.domain.NomDuModèle> nomDuModèle { get; set; }
+        // Le modèle doit absolument hériter de app.persistence.Entity
+        public DbSet<ListeSignalement> listeSignalement { get; set; }
+        public DbSet<CapsulesInformation> capsulesInformation { get; set; }
+    }
 	
 	/*public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppContext>
     {

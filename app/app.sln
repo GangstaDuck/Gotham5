@@ -15,6 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "app.acceptanceTests", "app.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app.web", "app.web\app.web.csproj", "{9FFC30D0-7A44-428F-9AE7-B21ACFAC0B88}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6EEE373A-44C5-4784-8877-C28E432A7D32}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
