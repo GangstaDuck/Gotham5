@@ -5,12 +5,12 @@ services:
   
 before_install:
   - docker pull ubuntu:latest
-  - docker run ubuntu:latest
+  - docker run ubuntu:latest --name gotham5
   - docker ps -a
-  - docker cp ./app 2585348b3c7e:/
+  - docker cp ./app gotham5:/
   
 dotnet: 3.0
 script:
   - dotnet build ./app/app.domain/
   - dotnet build ./app/app.persistence/
-
+  - dotnet build ./app/app.web/
