@@ -8,7 +8,6 @@ before_install:
   
 dotnet: 3.0
 script:
-  - cd
   - dotnet build ./app/app.domain/
   - dotnet build ./app/app.persistence/
   - dotnet build ./app/app.web/
