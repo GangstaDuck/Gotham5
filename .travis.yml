@@ -5,7 +5,7 @@ services:
   
 before_install:
   - docker pull ubuntu:latest
-  - docker run ubuntu:latest --name gotham5
+  - docker run --name gotham5 ubuntu:latest
   - docker ps -a
   - docker cp ./app gotham5:/
   
