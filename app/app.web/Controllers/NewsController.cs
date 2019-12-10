@@ -13,16 +13,18 @@ namespace app.web.Controllers
     public class NewsController : Controller
     {
         private readonly persistence.AppContext _context;
+        private IRepository<domain.News> _newRepository;
 
-        public NewsController(persistence.AppContext context)
+        public NewsController(persistence.AppContext context, IRepository<domain.News> newRepository)
         {
             _context = context;
+            _newRepository = newRepository;
         }
 
         // GET: News
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cours.ToListAsync());
+            return View(await _newRepository.GetAll());
         }
 
         // GET: News/Details/5
@@ -73,7 +75,7 @@ namespace app.web.Controllers
                 return NotFound();
             }
 
-            var news = await _context.Cours.FindAsync(id);
+            var news = await _newRepository.GetById(id);
             if (news == null)
             {
                 return NotFound();
@@ -97,6 +99,7 @@ namespace app.web.Controllers
             {
                 try
                 {
+                    await _newRepository.Update(news);
                     _context.Update(news);
                     await _context.SaveChangesAsync();
                 }
@@ -139,6 +142,8 @@ namespace app.web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var newToDelete = await _newRepository.GetById(id);
+            await _newRepository.Delete(newToDelete);
             var news = await _context.Cours.FindAsync(id);
             _context.Cours.Remove(news);
             await _context.SaveChangesAsync();
