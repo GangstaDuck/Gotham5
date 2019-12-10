@@ -12,12 +12,14 @@ namespace app.web.Controllers
 {
     public class NewsController : Controller
     {
-        private readonly persistence.AppContext _context;
+        //private readonly persistence.AppContext _context;
         private IRepository<domain.News> _newRepository;
 
-        public NewsController(persistence.AppContext context, IRepository<domain.News> newRepository)
+        //persistence.AppContext context,
+
+        public NewsController(IRepository<domain.News> newRepository)
         {
-            _context = context;
+            //_context = context;
             _newRepository = newRepository;
         }
 
@@ -34,9 +36,8 @@ namespace app.web.Controllers
             {
                 return NotFound();
             }
-
-            var news = await _context.Cours
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var news = await _newRepository.GetById(id);
+            //var news = await _context.Cours.FirstOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -60,8 +61,9 @@ namespace app.web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(news);
-                await _context.SaveChangesAsync();
+                await _newRepository.Add(news);
+                //_context.Add(news);
+                //await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(news);
@@ -100,12 +102,14 @@ namespace app.web.Controllers
                 try
                 {
                     await _newRepository.Update(news);
-                    _context.Update(news);
-                    await _context.SaveChangesAsync();
+                    //_context.Update(news);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.Id))
+                    var newsSearched = await _newRepository.GetById(id);
+                    //!NewsExists(news.id)
+                    if (newsSearched == null)
                     {
                         return NotFound();
                     }
@@ -126,9 +130,8 @@ namespace app.web.Controllers
             {
                 return NotFound();
             }
-
-            var news = await _context.Cours
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var news = await _newRepository.GetById(id);
+            //var news = await _context.Cours.FirstOrDefaultAsync(m => m.Id == id);
             if (news == null)
             {
                 return NotFound();
@@ -144,15 +147,17 @@ namespace app.web.Controllers
         {
             var newToDelete = await _newRepository.GetById(id);
             await _newRepository.Delete(newToDelete);
-            var news = await _context.Cours.FindAsync(id);
-            _context.Cours.Remove(news);
-            await _context.SaveChangesAsync();
+            //var news = await _context.Cours.FindAsync(id);
+            //_context.Cours.Remove(news);
+            //await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NewsExists(int id)
+        private async Task<bool> NewsExistsAsync(int id)
         {
-            return _context.Cours.Any(e => e.Id == id);
+            //return _context.Cours.Any(e => e.Id == id);
+            var news = await _newRepository.GetById(id);
+            return (news != null);
         }
     }
 }
