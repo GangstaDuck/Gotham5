@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Capsules d'information</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Créer une capsule</a>
 </p>
 <table class="table">
     <thead>
@@ -27,13 +27,14 @@
             <th></th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model) {
+@*@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Titre)
             </td>
-            <td>
+            @<td>
                 @Html.DisplayFor(modelItem => item.Texte)
             </td>
             <td>
@@ -49,5 +50,5 @@
             </td>
         </tr>
 }
-    </tbody>
+    </tbody>*@
 </table>

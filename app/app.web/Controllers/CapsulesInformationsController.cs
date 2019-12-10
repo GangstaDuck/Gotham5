@@ -22,8 +22,7 @@ namespace app.web.Controllers
         // GET: CapsulesInformations
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.capsulesInformation.ToListAsync());
-            return View();
+            return View(_context.capsulesInformation);
         }
 
         // GET: CapsulesInformations/Details/5

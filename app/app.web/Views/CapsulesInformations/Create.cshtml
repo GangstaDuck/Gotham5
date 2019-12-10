@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>CapsulesInformation</h4>
+<h4>Capsule d'Information</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Texte" class="control-label"></label>
-                <input asp-for="Texte" class="form-control" />
+                <textarea asp-for="Texte" class="form-control"></textarea>
                 <span asp-validation-for="Texte" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -28,19 +27,12 @@
                 <span asp-validation-for="Lien" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" asp-action="Index" />
+                <input type="submit" value="Prévisualiser" class="btn btn-secondary" />
+                <input type="submit" value="Annuler" class="btn btn-secondary" asp-action="Index"/>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

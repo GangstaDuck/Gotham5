@@ -15,9 +15,9 @@ namespace app.persistence
 		{
 			_capsulesInformation = new List<CapsulesInformation>()
 			{
-				new CapsulesInformation(){Titre = "Folie contagieusse", Lien = "https://www.youtube.com/watch?v=RJIDLGuqfmc", Status = "published", Texte = "lorem ipsum"},
-				new CapsulesInformation(){Titre = "Feu", Lien = "https://www.youtube.com/watch?v=BDpS28vIpsA&t=78s", Status = "pending", Texte = "lorem ipsum"},
-				new CapsulesInformation(){Titre = "Zombie", Lien = "https://www.youtube.com/watch?v=iSiouayIEAI", Status = "archived", Texte = "lorem ipsum"},
+				new CapsulesInformation(){ Titre = "Folie contagieusse", Lien = "https://www.youtube.com/watch?v=RJIDLGuqfmc", Status = "published", Texte = "lorem ipsum"},
+				new CapsulesInformation(){ Titre = "Feu", Lien = "https://www.youtube.com/watch?v=BDpS28vIpsA&t=78s", Status = "pending", Texte = "lorem ipsum"},
+				new CapsulesInformation(){ Titre = "Zombie", Lien = "https://www.youtube.com/watch?v=iSiouayIEAI", Status = "archived", Texte = "lorem ipsum"},
 			};
 
 	}
