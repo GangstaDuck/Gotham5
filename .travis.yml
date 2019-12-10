@@ -1,2 +1,2 @@
 language: csharp
-solution: app.sln
+solution: app/app.sln
