@@ -5,11 +5,12 @@ services:
   
 before_install:
   - docker pull ubuntu:latest
-  - docker ps
-  - docker cp ./app mycontainer:/app
+
   
 dotnet: 3.0
 script:
+  - docker ps
+  - docker cp ./app mycontainer:/app
   - dotnet build ./app/app.domain/
   - dotnet build ./app/app.persistence/
   - dotnet build ./app/app.web/
