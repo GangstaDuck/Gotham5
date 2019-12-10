@@ -5,7 +5,7 @@ services:
   
 before_install:
   - docker pull ubuntu:latest
-  - docker cp .app mycontainer:/app
+  - docker cp ./app mycontainer:/app
   
 dotnet: 3.0
 script:
