@@ -1,0 +1,27 @@
+﻿@model IEnumerable<app.domain.Models.ListeSignalement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<a asp-action="Tsunami">Tsunami</a>
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<a asp-action="Feu">Feu de forêt</a>
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<a asp-action="Tremblement">Tremblement de terre</a>
+			</th>
+		</tr>
+	</thead>
+</table>
