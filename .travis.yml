@@ -5,6 +5,7 @@ services:
   
 before_install:
   - docker pull ubuntu:latest
+  - docker run ubuntu:latest
   - docker ps -a
   
 dotnet: 3.0
