@@ -1,0 +1,60 @@
+﻿@model app.domain.Models.Alertes
+
+@{
+	ViewData["Title"] = "Tremblement";
+}
+
+<h1>Tremblement de terre</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>
+				<h4>Nature de l'évènement</h4>
+				<p>La Terre</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Secteur(s)</h4>
+				<p>Le Québec au complet</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Risques encourus</h4>
+				<p>Mort, blessure grave</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Ressources mises à la disposition des citoyens</h4>
+				<p>Le dessous de bureau/table/cadre de porte</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Conseils pour affronter le sinistre</h4>
+				<p>Rester dehors et loin des immeubles</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Date</h4>
+				<p>13 avril 2014 vers 01h20</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Status</h4>
+				<p>En attente</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a asp-action="TremblementPublier">Publier</a> <a asp-action="Editer">Éditer</a>
+			</td>
+		</tr>
+
+	</thead>
+</table>
