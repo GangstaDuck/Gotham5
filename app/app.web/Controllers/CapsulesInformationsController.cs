@@ -12,17 +12,24 @@ namespace app.web.Controllers
 {
     public class CapsulesInformationsController : Controller
     {
-        private readonly persistence.AppContext _context;
+        //private readonly persistence.AppContext _context;
 
-        public CapsulesInformationsController(persistence.AppContext context)
+        //public CapsulesInformationsController(persistence.AppContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private IRepository<CapsulesInformation> _capsuleInformationRepository;
+
+        public CapsulesInformationsController(IRepository<CapsulesInformation> capsuleInformationRepository)
         {
-            _context = context;
+            _capsuleInformationRepository = capsuleInformationRepository;
         }
 
         // GET: CapsulesInformations
         public async Task<IActionResult> Index()
         {
-            return View(_context.capsulesInformation);
+            return View(await _capsuleInformationRepository.GetAll());
         }
 
         // GET: CapsulesInformations/Details/5

@@ -29,12 +29,12 @@
     </thead>
 
     <tbody>
-@*@foreach (var item in Model) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Titre)
             </td>
-            @<td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Texte)
             </td>
             <td>
@@ -50,5 +50,5 @@
             </td>
         </tr>
 }
-    </tbody>*@
+    </tbody>
 </table>

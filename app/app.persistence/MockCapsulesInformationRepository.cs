@@ -32,9 +32,10 @@ namespace app.persistence
 			throw new NotImplementedException();
 		}
 
-		public Task<IQueryable<CapsulesInformation>> GetAll()
+		public async Task<IQueryable<CapsulesInformation>> GetAll()
 		{
-			throw new NotImplementedException();
+			IQueryable<CapsulesInformation> list = _capsulesInformation.AsQueryable();
+			return await Task.Run(() => list);
 		}
 
 		public Task<CapsulesInformation> GetById(int? id)

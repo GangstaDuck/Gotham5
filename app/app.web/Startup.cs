@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using app.domain.Models;
+using app.persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,8 +26,9 @@ namespace app.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IRepository<CapsulesInformation>, MockCapsulesInformationRepository>();
             services.AddControllersWithViews(); 
-            services.AddDbContext<app.persistence.AppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("appwebcontext")), ServiceLifetime.Transient);
+            services.AddDbContext<app.persistence.AppContext>(options => options.UseSqlServer(Configuration.GetConnectionString("appwebcontext")), ServiceLifetime.Transient);           
 
         }
 
