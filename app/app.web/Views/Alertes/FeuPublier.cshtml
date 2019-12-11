@@ -1,0 +1,61 @@
+﻿@model app.domain.Models.Alertes
+
+@{
+	ViewData["Title"] = "Feu";
+}
+
+
+<h1>Feu de forêt</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>
+				<h4>Nature de l'évènement</h4>
+				<p>Quelqu'un a oublié de fermer son BBQ</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Secteur(s)</h4>
+				<p>Dans la forêt à côté de Roger-Comptois</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Risques encourus</h4>
+				<p>Mortalité, Intoxication par la fumée, brulûre</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Ressources mises à la disposition des citoyens</h4>
+				<p>Les pompiers</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Conseils pour affronter le sinistre</h4>
+				<p>Ne pas être proche du feu</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Date</h4>
+				<p>13 février 2036 vers 23h53</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Status</h4>
+				<p>Publié</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a asp-action="Feu">En attente</a> <a asp-action="Editer">Éditer</a>
+			</td>
+		</tr>
+
+	</thead>
+</table>

@@ -1,0 +1,60 @@
+﻿@model app.domain.Models.Alertes
+
+@{
+	ViewData["Title"] = "Canicule";
+}
+
+	<h1>Canicule</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>
+				<h4>Nature de l'évènement</h4>
+				<p>La température</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Secteur(s)</h4>
+				<p>Le nord du Québec</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Risques encourus</h4>
+				<p>Sécheresse</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Ressources mises à la disposition des citoyens</h4>
+				<p>De l'eau</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Conseils pour affronter le sinistre</h4>
+				<p>Boire de façon régulier de l'eau</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Date</h4>
+				<p>20 janvier 2019 vers 12h43</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h4>Status</h4>
+				<p>Publié</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a asp-action="Canicule">En attente</a> <a asp-action="Editer">Éditer</a>
+			</td>
+		</tr>
+
+	</thead>
+</table>

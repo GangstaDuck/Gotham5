@@ -1,0 +1,60 @@
+﻿@model app.domain.Models.Alertes
+
+@{
+    ViewData["Title"] = "Editer";
+}
+
+	<h1>Éditer</h1>
+
+<h4>Alertes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titre" class="control-label"></label>
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Secteur" class="control-label"></label>
+                <input asp-for="Secteur" class="form-control" />
+                <span asp-validation-for="Secteur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Risques" class="control-label"></label>
+                <input asp-for="Risques" class="form-control" />
+                <span asp-validation-for="Risques" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ressources" class="control-label"></label>
+                <input asp-for="Ressources" class="form-control" />
+                <span asp-validation-for="Ressources" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Conseils" class="control-label"></label>
+                <input asp-for="Conseils" class="form-control" />
+                <span asp-validation-for="Conseils" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateHeure" class="control-label"></label>
+                <input asp-for="DateHeure" class="form-control" />
+                <span asp-validation-for="DateHeure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <button class="btn btn-primary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste</a>
+</div>

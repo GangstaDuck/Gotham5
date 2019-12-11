@@ -1,0 +1,30 @@
+﻿@model IEnumerable<app.domain.Models.Alertes>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Alertes</h1>
+
+<div align="right">
+	<a asp-action="Ajouter">Ajouter une alerte</a>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				<a asp-action="Tremblement">Tremblement de terre</a>
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<a asp-action="Feu">Feu de forêt</a>
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<a asp-action="Canicule">Canicule</a>
+			</th>
+		</tr>
+	</thead>
+</table>
