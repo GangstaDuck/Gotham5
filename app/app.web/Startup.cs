@@ -27,6 +27,7 @@ namespace app.web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IRepository<domain.News>, MockNewsRepository>();
+            //services.AddSingleton<IRepository<domain.News>, AppRepository>();
             services.AddControllersWithViews();
             services.AddDbContext<app.persistence.AppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("appwebContext")), ServiceLifetime.Transient);

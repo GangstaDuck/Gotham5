@@ -1,8 +1,12 @@
 ﻿
+using System.Collections.Generic;
+
 namespace app.persistence
 {
     public class MockNews
     {
+        public List<domain.News> news { get; set; }
+
         public domain.News news1 = new domain.News()
         {
             Title = "Les framboises sont de retours!",

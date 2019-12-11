@@ -9,7 +9,9 @@ namespace app.persistence
 {
     public class MockNewsRepository : IRepository<domain.News>
     {
-        private readonly List<domain.News> _news;
+        //private readonly List<domain.News> _news;
+        public List<domain.News> _news { get; set; }
+
         public MockNewsRepository()
         {
             _news = new List<domain.News>()
@@ -39,12 +41,23 @@ namespace app.persistence
         }
         public Task Add(domain.News entity)
         {
-            throw new NotImplementedException();
+            domain.News newNew = entity;
+            _news.Add(newNew);
+            return GetAll();
         }
 
         public Task Delete(domain.News entity)
         {
-            throw new NotImplementedException();
+            foreach (domain.News news in _news)
+            {
+                if (news.Id == entity.Id)
+                {
+                    _news.Remove(entity);
+                    return GetAll();
+                }
+                return GetAll();
+            }
+            return GetAll();
         }
 
         public async Task<IQueryable<domain.News>> GetAll()
@@ -55,12 +68,33 @@ namespace app.persistence
 
         public Task<domain.News> GetById(int? id)
         {
-            throw new NotImplementedException();
+            foreach (domain.News news in _news)
+            {
+                if(news.Id == id)
+                {
+                    return Task.FromResult(news);
+                }
+                return null;
+            }
+            return null;
         }
 
         public Task Update(domain.News entity)
         {
-            throw new NotImplementedException();
+            foreach (domain.News news in _news)
+            {
+                if (news.Id == entity.Id)
+                {
+                    news.Title = entity.Title;
+                    news.Text = entity.Text;
+                    news.Link = entity.Link;
+                    news.Status = entity.Link;
+                    return GetAll();
+                }
+                return GetAll();
+            }
+            return GetAll();
         }
+
     }
 }
