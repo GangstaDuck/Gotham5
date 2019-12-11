@@ -40,9 +40,8 @@ namespace app.web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (capsulesInformation.Lien.Length == 43)
+                if ((capsulesInformation.Lien.Length == 43 && capsulesInformation.Lien.Substring(0,5) == "https" ) || capsulesInformation.Lien.Length == 42)
                 {
-
                     await _capsuleInformationRepository.Add(capsulesInformation);
                     return RedirectToAction(nameof(Index));
                 }
