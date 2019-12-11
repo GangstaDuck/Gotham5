@@ -96,5 +96,21 @@ namespace app.persistence
             return GetAll();
         }
 
+        public Task ChangeState(domain.News entity, string state)
+        {
+            foreach (domain.News news in _news)
+            {
+                if (news.Id == entity.Id)
+                {
+                    news.Title = entity.Title;
+                    news.Text = entity.Text;
+                    news.Link = entity.Link;
+                    news.Status = state;
+                    return GetAll();
+                }
+                return GetAll();
+            }
+            return GetAll();
+        }
     }
 }

@@ -16,5 +16,6 @@ namespace app.persistence
         Task Add(T entity);
 
         Task Update(T entity);
+        Task ChangeState(T entity, string state);
     }
 }

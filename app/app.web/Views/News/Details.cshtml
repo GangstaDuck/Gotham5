@@ -39,4 +39,7 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+
+    <a asp-action="ChangeState" asp-route-id="@Model.Id">Non Publié</a> |
+    <a asp-action="ChangeState" asp-route-id="@Model.Id">Publié</a>
 </div>

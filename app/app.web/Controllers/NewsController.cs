@@ -159,5 +159,17 @@ namespace app.web.Controllers
             var news = await _newRepository.GetById(id);
             return (news != null);
         }
+
+        public async void ChangeState(domain.News news)
+        {
+            if(news.Status == "Non publié")
+            {
+                await _newRepository.ChangeState(news, "Publié");
+            }
+            else
+            {
+                await _newRepository.ChangeState(news, "Non publié");
+            }
+        }
     }
 }
