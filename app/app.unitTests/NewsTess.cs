@@ -10,7 +10,7 @@ using Xunit;
 
 namespace app.unitTests
 {
-    class NewsTess
+    public class NewsTess
     {
         [Fact]
         public async Task Test_News_Index_Returns_A_ViewResult()

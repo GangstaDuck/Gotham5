@@ -4,7 +4,7 @@ using OpenQA.Selenium.Firefox;
 
 namespace app.interfaceTests
 {
-    class NewsInterfaceTests
+    public class NewsInterfaceTests
     {
         private IWebDriver driver;
 
