@@ -131,8 +131,20 @@ namespace app.web.Controllers
         public async Task<IActionResult> Publish(int id)
         {
             var capsule = await _capsuleInformationRepository.GetById(id);
+            capsule.Status = "published";
             await _capsuleInformationRepository.Update(capsule);
-            return RedirectToAction(nameof(Index));
+            return View(await _capsuleInformationRepository.GetAll());
+        }
+
+        // POST: CapsulesInformations/Delete/5
+        [HttpPost, ActionName("Archivate")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Archivate(int id)
+        {
+            var capsule = await _capsuleInformationRepository.GetById(id);
+            capsule.Status = "archived";
+            await _capsuleInformationRepository.Update(capsule);
+            return View(await _capsuleInformationRepository.GetAll());
         }
 
         private bool CapsuleExists(int id)
