@@ -12,13 +12,6 @@ namespace app.web.Controllers
 {
     public class CapsulesInformationsController : Controller
     {
-        //private readonly persistence.AppContext _context;
-
-        //public CapsulesInformationsController(persistence.AppContext context)
-        //{
-        //    _context = context;
-        //}
-
         private IRepository<CapsulesInformation> _capsuleInformationRepository;
 
         public CapsulesInformationsController(IRepository<CapsulesInformation> capsuleInformationRepository)
@@ -30,12 +23,6 @@ namespace app.web.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _capsuleInformationRepository.GetAll());
-        }
-
-        // GET: CapsulesInformations/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            return View();
         }
 
         // GET: CapsulesInformations/Create
@@ -51,13 +38,31 @@ namespace app.web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Titre,Texte,Lien,Status,Id")] CapsulesInformation capsulesInformation)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                if (capsulesInformation.Lien.Length == 43)
+                {
+
+                    await _capsuleInformationRepository.Add(capsulesInformation);
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return View(capsulesInformation);
         }
 
         // GET: CapsulesInformations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var capsulesInformation = await _capsuleInformationRepository.GetById(id);
+            if (capsulesInformation == null)
+            {
+                return NotFound();
+            }
+            return View(capsulesInformation);
         }
 
         // POST: CapsulesInformations/Edit/5
@@ -67,13 +72,48 @@ namespace app.web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Titre,Texte,Lien,Status,Id")] CapsulesInformation capsulesInformation)
         {
-            return View();
+            if (id != capsulesInformation.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _capsuleInformationRepository.Update(capsulesInformation);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CapsuleExists(capsulesInformation.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(capsulesInformation);
         }
 
         // GET: CapsulesInformations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var capsulesInformation = await _capsuleInformationRepository.GetById(id);
+            if (capsulesInformation == null)
+            {
+                return NotFound();
+            }
+
+            return View(capsulesInformation);
         }
 
         // POST: CapsulesInformations/Delete/5
@@ -81,7 +121,15 @@ namespace app.web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            return View();
+            var capsule = await _capsuleInformationRepository.GetById(id);
+            await _capsuleInformationRepository.Delete(capsule);
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool CapsuleExists(int id)
+        {
+            var capsule = _capsuleInformationRepository.GetById(id);
+            return (capsule != null);
         }
     }
 }

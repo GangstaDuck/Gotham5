@@ -27,12 +27,16 @@
                 <span asp-validation-for="Lien" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Sauvegarder" class="btn btn-primary" asp-action="Index" />
-                <input type="submit" value="Prévisualiser" class="btn btn-secondary" />
-                <input type="submit" value="Annuler" class="btn btn-secondary" asp-action="Index"/>
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+                <button class="btn btn-secondary">Prévisualiser</button>
+                <button class="btn btn-secondary" asp-action="Index">Annuler</button>
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

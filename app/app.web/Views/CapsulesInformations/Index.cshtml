@@ -6,49 +6,64 @@
 
 <h1>Capsules d'information</h1>
 
-<p>
-    <a asp-action="Create">Créer une capsule</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Texte)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Lien)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
 
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Texte)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lien)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+<table style="border: 1px solid black; border-collapse: collapse; ">
+    <tr>
+        <td colspan="5">
+            <a asp-action="Create">Créer une capsule</a>
+        </td>
+    </tr>
+    <tbody style="border: 1px solid black; border-collapse: collapse;">
+        @foreach (var item in Model)
+        {
+            <tr style="width: 100%; border: 1px solid black; border-collapse: collapse;
+">
+                <td colspan="4">
+                    <h3>@item.Titre</h3>
+                </td>
+                <td style="text-align:right;">
+                    @if (item.Status == "pending")
+                    {
+                        <span style="color:red;">@item.Status</span>
+                    }
+                    else if (item.Status == "published")
+                    {
+                        <span style="color:green;">@item.Status</span>
+                    }
+                    else if (item.Status == "archived")
+                    {
+                        <span style="color:gray;">@item.Status</span>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div style="overflow: auto; height: 180px; width: 100%;">
+                        @Html.DisplayFor(modelItem => item.Texte)
+                    </div>
+                </td>
+                <td colspan="1">
+                    <img style="float:right;  height: 180px; width: auto" src="https://img.youtube.com/vi/@item.Lien.Substring(32,11)/mqdefault.jpg" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <a asp-action="Publish" asp-route-id="@item.Id">Publish</a>
+                </td>
+                <td>
+                    <a asp-action="Visualize" asp-route-id="@item.Id">Visualize</a>
+                </td>
+                <td>
+                    <a asp-action="Archivate" asp-route-id="@item.Id">Archivate</a>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
