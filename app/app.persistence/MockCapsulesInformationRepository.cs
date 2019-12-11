@@ -57,9 +57,13 @@ namespace app.persistence
             }
         }
 
-        public Task Update(CapsulesInformation entity)
+        public async Task Update(CapsulesInformation entity)
         {
-            throw new NotImplementedException();
+            _capsulesInformation[entity.Id].Texte = entity.Texte;
+            _capsulesInformation[entity.Id].Lien = entity.Lien;
+            _capsulesInformation[entity.Id].Status = entity.Status;
+            _capsulesInformation[entity.Id].Titre = entity.Titre;
+            _capsulesInformation[entity.Id].Id = entity.Id;
         }
     }
 }

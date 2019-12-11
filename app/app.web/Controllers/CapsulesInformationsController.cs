@@ -42,6 +42,7 @@ namespace app.web.Controllers
             {
                 if ((capsulesInformation.Lien.Length == 43 && capsulesInformation.Lien.Substring(0,5) == "https" ) || capsulesInformation.Lien.Length == 42)
                 {
+                    capsulesInformation.Status = "pending";
                     await _capsuleInformationRepository.Add(capsulesInformation);
                     return RedirectToAction(nameof(Index));
                 }
@@ -115,13 +116,22 @@ namespace app.web.Controllers
             return View(capsulesInformation);
         }
 
-        // POST: CapsulesInformations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var capsule = await _capsuleInformationRepository.GetById(id);
             await _capsuleInformationRepository.Delete(capsule);
+            return RedirectToAction(nameof(Index));
+        }
+
+        // POST: CapsulesInformations/Delete/5
+        [HttpPost, ActionName("Publish")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Publish(int id)
+        {
+            var capsule = await _capsuleInformationRepository.GetById(id);
+            await _capsuleInformationRepository.Update(capsule);
             return RedirectToAction(nameof(Index));
         }
 
